@@ -46,14 +46,14 @@ Vidas: Você tem um número limitado de vidas.
 Acumule pontos comendo os pontos pelo labirinto.
 
 # Decisões de Implementação:
-•	Entidades:
+*	Entidades:
 PacMan: Representa o jogador controlável.
 Ghost: Representa os inimigos que perseguem o Pac-Man.
-•	Gerenciadores:
+*	Gerenciadores:
 GameManager: Gerencia o estado geral do jogo, como pontuação e vidas.
-•	Telas:
+*	Telas:
 GameScreen: Controla o fluxo do jogo, como iniciar, pausar e encerrar.
-•	Ajudantes:
+*	Ajudantes:
 CollisionHelper: Auxilia na detecção de colisões entre entidades.
 # Análise dos Códigos Disponibilizados:
 •	Inky.cs, Blinky.cs, Pinky.cs, Lyde.cs:
