@@ -1,4 +1,5 @@
-Trabalho Prático01 - Jogo Pacman em MonoGame com C# - Engenharia e Desenvolvimento de Jogos Digitais
+Trabalho Prático01 - Jogo Pacman em MonoGame com C# - 
+Engenharia e Desenvolvimento de Jogos Digitais
 Marco Macedo nº27919 / Miguel Freitas nº29562 
 
 Introdução:
