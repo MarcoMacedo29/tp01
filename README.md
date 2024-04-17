@@ -173,7 +173,7 @@ Método para Obter Distância entre Tiles: Implementa um método estático para 
 Métodos Construtores: Define construtores para criar um tile com uma posição e um tipo de tile especificados.
 Essa classe é fundamental para representar e interagir com os diferentes elementos no mapa do jogo Pac-Man, como paredes, fantasmas, snacks e o jogador. Ela facilita o gerenciamento e a manipulação dos tiles durante a jogabilidade.
 
-Conclusão:
+# Conclusão:
 Implementamos com sucesso uma versão simplificada do clássico Pac-Man usando MonoGame em C#. Este projeto recria a emoção do jogo original, mantendo a jogabilidade icônica e desafiadora. Com controles simples e objetivos claros, o jogo oferece uma experiência divertida e envolvente para jogadores de todas as idades. A combinação de design retro com tecnologia moderna torna esta versão do Pac-Man uma homenagem ao legado duradouro deste jogo atemporal.
 
 
