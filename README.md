@@ -43,7 +43,7 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
     - |-- SpriteAnimation.cs
     - |-- SpriteSheet.cs
     - |-- Text.cs
-    - |-- Title.cs
+    - |-- Tile.cs
 
 - __Pacman/:__ Contém recursos como imagens, fontes e sons.
 - __Code/:__ Contém o código-fonte do jogo organizado em entidades, gerenciadores, telas e ajudantes.
@@ -198,32 +198,134 @@ Renderiza o texto "PRESS ENTER TO PLAY" na tela com a fonte básica definida ant
 Desenha o logotipo do Pac-Man na tela na posição e tamanho definidos.
 
 ## 	 	__Node.cs:__
-Esse código define a classe node, que representa um nó em um grafo utilizado para o algoritmo de busca A* no jogo Pac-Man. Aqui está uma análise do código:
-Campos:
-gCost: Custo acumulado do nó até o nó inicial.
-hCost: Custo heurístico estimado do nó até o nó de destino.
-parent: Nó pai no caminho até o nó atual.
-ignoreDirection: Direção a ser ignorada ao determinar os vizinhos do nó.
-isWalkable: Indica se o nó é navegável (não é uma parede).
-pos: Posição do nó no mapa.
-tile: Referência ao tile associado ao nó.
-Método setIgnoreDirection:
-•	Define a direção a ser ignorada com base na direção atual.
-Método setParent:
-•	Define o nó pai.
-Propriedade fCost:
-•	Retorna a soma dos custos gCost e hCost.
-Construtor:
-•	Inicializa o nó com base na posição fornecida.
-Verifica se a posição está dentro dos limites do mapa e se o tile associado é uma parede ou não.
-Método Copy:
-•	Cria uma cópia do nó.
-•	A cópia inclui a cópia do nó pai, se existir.
-Método getNeighbours:
-Obtém os vizinhos navegáveis do nó, excluindo a direção especificada para ignorar.
-Verifica se os vizinhos estão dentro dos limites do mapa e se são navegáveis.
-Essa classe é fundamental para o algoritmo de busca A* usado para calcular caminhos para os fantasmas no jogo Pac-Man, garantindo que eles se movam de forma inteligente pelo labirinto, evitando paredes e alcançando o jogador de forma eficiente.
+A classe Node neste código serve como uma representação abstrata de um ponto específico no mapa do jogo Pac-Man. Ela é essencial para o algoritmo de busca utilizado para calcular os caminhos que os fantasmas devem seguir para alcançar o jogador. Cada nó armazena informações importantes, como sua posição, se é ou não um local onde os fantasmas podem se mover, os custos associados ao movimento até esse ponto e uma referência ao nó pai. 
 
+Isso permite que o jogo determine os caminhos mais eficientes para os fantasmas percorrerem o labirinto, evitando paredes e obstáculos. Em resumo, a classe Node desempenha um papel crucial na inteligência artificial dos fantasmas, garantindo que eles persigam o jogador de forma inteligente e desafiadora.
+
+```
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Pacman
+{
+    public class Node
+    {
+        public int gCost;
+        public int hCost;
+
+        public Node parent;
+        public Dir ignoreDirection = Dir.None;
+
+        public void setIgnoreDirection(Dir currentDir)
+        {
+            switch (currentDir)
+            {
+                case Dir.Right:
+                    ignoreDirection = Dir.Left;
+                    break;
+                case Dir.Left:
+                    ignoreDirection = Dir.Right;
+                    break;
+                case Dir.Down:
+                    ignoreDirection = Dir.Up;
+                    break;
+                case Dir.Up:
+                    ignoreDirection = Dir.Down;
+                    break;
+            }
+        }
+
+        public void setParent(Node parent)
+        {
+            this.parent = parent;
+        }
+        
+        public int fCost {
+            get {
+                return gCost + hCost;
+            }
+        }
+
+        public bool isWalkable;
+
+        public Vector2 pos;
+        Tile tile;
+
+        public Node(Vector2 pos, Tile[,] tileArray)
+        {
+            if (pos.X < 0 || pos.Y < 0 || pos.X >= Controller.numberOfTilesX || pos.Y >= Controller.numberOfTilesY)
+            {
+                this.pos = new Vector2(-100, -100);
+            }
+            else
+            {
+                this.pos = pos;
+                tile = tileArray[(int)pos.X, (int)pos.Y];
+                if (tile.tileType == Tile.TileType.Wall)
+                {
+                    isWalkable = false;
+                }
+                else
+                {
+                    isWalkable = true;
+                }
+            }
+
+        }
+
+        public Node Copy(Tile[,] tileArray)
+        {
+            Node node = new Node(pos, tileArray);
+
+            node.hCost = hCost;
+            node.gCost = gCost;
+            node.ignoreDirection = ignoreDirection;
+            if (parent != null)
+            {
+                node.setParent(parent.Copy(tileArray));
+            }
+
+            return node;
+        }
+
+        public List<Node> getNeighbours(Tile[,] tileArray)
+        {
+            List<Node> neighbours = new List<Node>();
+
+            if (ignoreDirection != Dir.Left)
+            { 
+                Node left = new Node(new Vector2(pos.X - 1, pos.Y), tileArray);
+                if (left.pos != new Vector2(-100, -100)) neighbours.Add(left);
+            }
+
+            if (ignoreDirection != Dir.Right)
+            {
+                Node right = new Node(new Vector2(pos.X + 1, pos.Y), tileArray);
+                if (right.pos != new Vector2(-100, -100)) neighbours.Add(right);
+            }
+
+            if (ignoreDirection != Dir.Up)
+            {
+                Node up = new Node(new Vector2(pos.X, pos.Y - 1), tileArray);
+                if (up.pos != new Vector2(-100, -100)) neighbours.Add(up);
+            }
+
+            if (ignoreDirection != Dir.Down)
+            {
+                Node down = new Node(new Vector2(pos.X, pos.Y + 1), tileArray);
+                if (down.pos != new Vector2(-100, -100)) neighbours.Add(down);
+            }
+
+            return neighbours;
+        }
+    }
+}
+```
 ##  __Pathfinfings.cs:__
 Este código implementa um algoritmo de busca chamado A* (A estrela) para encontrar o caminho mais curto entre dois pontos em um labirinto, usado no jogo Pac-Man para os fantasmas perseguirem o jogador. O
 algoritmo:
@@ -358,6 +460,53 @@ Propriedade de Posição: Fornece uma propriedade para acessar a posição do ti
 Método para Obter Distância entre Tiles: Implementa um método estático para calcular a distância euclidiana entre duas posições de tiles.
 Métodos Construtores: Define construtores para criar um tile com uma posição e um tipo de tile especificados.
 Essa classe é fundamental para representar e interagir com os diferentes elementos no mapa do jogo Pac-Man, como paredes, fantasmas, snacks e o jogador. Ela facilita o gerenciamento e a manipulação dos tiles durante a jogabilidade.
+
+```
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Pacman
+{
+    public class Tile
+    {
+        public enum TileType { None, Wall, Ghost, GhostHouse, Player, Snack };
+
+        public TileType tileType = TileType.None;
+        public bool isEmpty = true;
+
+        Vector2 position;
+
+        public Vector2 Position
+        {
+            get
+            {
+                return position;
+            }
+        }
+
+        public static int getDistanceBetweenTiles(Vector2 pos1, Vector2 pos2)
+        {
+            return (int)Math.Sqrt(Math.Pow(pos1.X - pos2.X, 2) + Math.Pow(pos1.Y - pos2.Y, 2));
+        }
+
+        public Tile(Vector2 newPosition)
+        {
+            position = newPosition;
+        }
+
+        public Tile(Vector2 newPosition, TileType newTileType)
+        {
+            position = newPosition;
+            tileType = newTileType;
+        }
+    }
+}
+```
 
 ## 	 	__Enemy.cs:__
 O código define uma série de enums para os tipos de fantasmas (GhostType) e estados do inimigo (EnemyState).Há a definição de diversas propriedades e variáveis para controlar a posição, direção, velocidade e estado dos fantasmas, bem como para armazenar informações sobre as animações dos mesmos.O construtor da classe inicializa várias dessas propriedades com valores padrão e configura as animações dos fantasmas.Há métodos para desenhar (Draw) e atualizar (Update) os fantasmas no jogo. Isso inclui lógica para decidir a direção dos fantasmas, movê-los pelo tabuleiro e lidar com a colisão deles com o jogador ou com outros elementos do jogo.Existem métodos para calcular a posição alvo dos fantasmas em diferentes estados do jogo, como perseguição, fuga e quando são comidos pelo jogador.
