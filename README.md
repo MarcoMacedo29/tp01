@@ -564,12 +564,9 @@ namespace Pacman
 
 <a name="snack"></a>
 ## 	 	__Snack.cs:__
-Este código implementa a classe Snack para representar os snacks (ou pontos) que o jogador pode coletar no jogo Pac-Man. Aqui está uma breve explicação das principais características desta classe:
-Enumerador SnackType: Define os tipos de snacks disponíveis, como "Small" (pequeno) e "Big" (grande).
-Atributos: Inclui a posição do snack no grid do labirinto, o tipo de snack, a pontuação ganha ao coletar o snack e o retângulo de desenho para snacks pequenos e grandes.
-Método Construtor: Inicializa um novo snack com base no tipo fornecido, definindo sua posição no grid e atribuindo uma pontuação e um deslocamento de raio adequados.
-Método Draw: Desenha o snack na tela com base no seu tipo e posição. Para snacks grandes, um temporizador é usado para alternar entre a visualização do snack e uma visualização intermitente.
-Essa classe é responsável por representar os snacks no jogo Pac-Man e desenhá-los na tela para que o jogador possa coletá-los durante o jogo.
+O snack.cs serve para representar as bolinhas que se comem.Existem dois tipos de bolas: pequenas e grandes, cada um com sua própria pontuação. 
+
+A classe desenha as bolinhas  na tela e inclui uma lógica de animação para as bolinhas grandes.
 
 ```
 using System;
