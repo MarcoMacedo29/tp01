@@ -119,7 +119,43 @@ Além disso, a classe gerencia eventos como a vitória do jogador, o fim do jogo
 
 ## 		__MySounds.cs:__
 Este código define uma classe estática chamada MySounds que armazena referências para efeitos sonoros do jogo Pac-Man. Ele fornece campos estáticos para cada efeito sonoro, permitindo acesso global e controle centralizado dos sons do jogo. Cada campo representa um efeito sonoro específico.
+```
+using System;
+using System.Collections.Generic;
+using System.Text;
 
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Pacman
+{
+    public static class MySounds
+    {
+        public static SoundEffect game_start;
+        public static SoundEffect munch;
+        public static SoundEffectInstance munchInstance;
+        public static SoundEffect credit;
+        public static SoundEffect death_1;
+        public static SoundEffect death_2;
+        public static SoundEffect eat_fruit;
+        public static SoundEffect eat_ghost;
+        public static SoundEffect power_pellet;
+        public static SoundEffectInstance power_pellet_instance;
+        public static SoundEffect extend;
+        public static SoundEffect intermission;
+        public static SoundEffect retreating;
+        public static SoundEffectInstance retreatingInstance;
+        public static SoundEffect siren_1;
+        public static SoundEffectInstance siren_1_instance;
+        public static SoundEffect siren_2;
+        public static SoundEffect siren_3;
+        public static SoundEffect siren_4;
+        public static SoundEffect siren_5;
+    }
+}
+```
 ## 		__Game1.cs:__
 Este código é a classe principal do jogo Pac-Man, chamada Game1. Ela contém a lógica principal do jogo, incluindo a inicialização, carregamento de conteúdo, atualização e renderização dos elementos do jogo.
 Variáveis e campos: Define diversos campos estáticos e instâncias necessárias para controlar o jogo, como o controlador do jogo, texturas, animações e sons.
