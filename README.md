@@ -38,14 +38,14 @@ Content/: Contém recursos como imagens, fontes e sons.
 Code/: Contém o código-fonte do jogo organizado em entidades, gerenciadores, telas e ajudantes.
 
 # Instruções de Jogo
-* Objetivo:
+* __Objetivo:__ 
 Mova o Pac-Man pelo labirinto para comer todos os pontos e evitar os fantasmas.
-* Controles
+* __Controles:__
 Setas Direcionais: Mova o Pac-Man nas direções desejadas.
-* Fantasmas e Vidas
+* __Fantasmas e Vidas:__
 Fantasmas: Evite ser capturado pelos fantasmas.
 Vidas: Você tem um número limitado de vidas.
-* Pontuação
+* __Pontuação:__
 Acumule pontos comendo os pontos pelo labirinto.
 
 # Decisões de Implementação
