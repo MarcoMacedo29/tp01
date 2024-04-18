@@ -1,6 +1,8 @@
 # Trabalho Prático01 - Jogo Pacman em MonoGame com C# - Engenharia e Desenvolvimento de Jogos Digitais - Marco Macedo nº27919 / Miguel Freitas nº29562 
 
+1. [My First Title](#Implementação)
 
+2. [My Second Title](#markdown-header-my-second-title)
 # Introdução
 Este relatório apresenta a implementação de uma versão simplificada do jogo Pac-Man, desenvolvida utilizando o framework MonoGame em C#. O objetivo é fornecer uma visão geral da estrutura do projeto, decisões de implementação e instruções de jogo. Além disso, será feita uma análise dos códigos disponibilizados, abordando a organização e a lógica implementada.
 <p align="center">
@@ -8,45 +10,48 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 </p>
 
 # Implementação
-•	Estrutura de Pastas:
-PacMan/
-|-- Content/
-      |-- Fonts/
-      |-- SpriteSheets/
-      |-- Sounds/
-|-- Code/
-      |-- Blinky.cs
-      |-- Clyde.cs
-      |-- Enemy.cs
-      |-- Game1.cs
-      |-- GameOver.cs
-      |-- Inky.cs
-      |-- Menu.cs
-      |-- MySounds.cs
-      |-- Node.cs
-      |-- Pathfinding.cs
-      |-- Pinky.cs
-      |-- Player.cs
-      |-- Program.cs
-      |-- Snack.cs
-      |-- SpriteAnimation.cs
-      |-- SpriteSheet.cs
-      |-- Text.cs
-      |-- Title.cs
 
-Content/: Contém recursos como imagens, fontes e sons.
-Code/: Contém o código-fonte do jogo organizado em entidades, gerenciadores, telas e ajudantes.
+## Estrutura de Pastas:
+
+* PacMan/
+  - |-- Content/
+  - |-- Fonts/
+  - |-- SpriteSheets/
+  - |-- Sounds/
+
+* Code/
+  - |-- Blinky.cs
+  - |-- Clyde.cs
+  - |-- Enemy.cs
+  - |-- Game1.cs
+  - |-- GameOver.cs
+  - |-- Inky.cs
+  - |-- Menu.cs
+  - |-- MySounds.cs
+  - |-- Node.cs
+  - |-- Pathfinding.cs
+  - |-- Pinky.cs
+  - |-- Player.cs
+  - |-- Program.cs
+  - |-- Snack.cs
+  - |-- SpriteAnimation.cs
+  - |-- SpriteSheet.cs
+  - |-- Text.cs
+  - |-- Title.cs
+
+- __Pacman/:__ Contém recursos como imagens, fontes e sons.
+- __Code/:__ Contém o código-fonte do jogo organizado em entidades, gerenciadores, telas e ajudantes.
 
 # Instruções de Jogo
 * __Objetivo:__ 
-Mova o Pac-Man pelo labirinto para comer todos os pontos e evitar os fantasmas.
+    - Mova o Pac-Man pelo labirinto para comer todos os pontos e evitar os fantasmas.
 * __Controles:__
-Setas Direcionais: Mova o Pac-Man nas direções desejadas.
+    - __Setas Direcionais:__ Mova o Pac-Man nas direções desejadas.
 * __Fantasmas e Vidas:__
-Fantasmas: Evite ser capturado pelos fantasmas.
-Vidas: Você tem um número limitado de vidas.
+    - __Fantasmas:__ Evite ser capturado pelos fantasmas.
+    - __Vidas:__ Você tem um número limitado de vidas.
 * __Pontuação:__
-Acumule pontos comendo os pontos pelo labirinto.
+    - Acumule pontos comendo os pontos pelo labirinto.
 
 # Decisões de Implementação
 *  Entidades:
@@ -55,9 +60,9 @@ Acumule pontos comendo os pontos pelo labirinto.
 *  Gerenciadores:
    - __GameManager:__ Gerencia o estado geral do jogo, como pontuação e vidas.
 *	 Telas:
-   - __GameScreen:__ Controla o fluxo do jogo, como iniciar, pausar e encerrar.
+   - GameScreen: Controla o fluxo do jogo, como iniciar, pausar e encerrar.
 *	 Ajudantes:
-   - __CollisionHelper:__ Auxilia na detecção de colisões entre entidades.
+   - CollisionHelper: Auxilia na detecção de colisões entre entidades.
 
 # Análise dos Códigos Disponibilizados
 
