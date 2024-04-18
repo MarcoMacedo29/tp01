@@ -120,9 +120,10 @@ namespace Pacman
 
 <a name="controller"></a>
 ## 	 	__Controller.cs:__
-A classe Controller é responsável pelo controle do jogo, incluindo a criação do mapa, a lógica dos fantasmas, a verificação do tipo de bloco e muito mais. Ela mantém o estado do jogo, como o estado dos fantasmas, a pontuação, as vidas extras do jogador e assim por diante. 
+O Controller.cs gerencia várias partes do jogo, incluindo a criação do mapa, movimento dos personagens, interação com itens no mapa , e o gerenciamento do estado do jogo (normal, fim de jogo, menu). 
 
-Além disso, gerencia a criação e o controle dos objetos no jogo, como snacks e fantasmas, e possui métodos para atualizar e desenhar elementos do jogo, como fantasmas, snacks e a grade de debug.
+Além disso, ele controla a lógica dos fantasmas, a detecção de colisões, e a mudança de estados do jogo, como quando os fantasmas estão em perseguição ou fuga. Em resumo, o código coordena todas as funcionalidades necessárias para proporcionar uma experiência jogável do Pacman.
+
 
 <a name="mysounds"></a>
 ## 		__MySounds.cs:__
@@ -411,6 +412,133 @@ Expande os nós vizinhos, calculando custos e atualizando caminhos se necessári
 Reconstrói o caminho mais curto se encontrado.
 Essa implementação é crucial para o comportamento inteligente dos fantasmas, permitindo que eles naveguem pelo labirinto e persigam o jogador de forma eficiente.
 
+```
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Pacman
+{
+    public class Pathfinding
+    {
+        public static List<Vector2> findPath(Vector2 startPos, Vector2 endPos, Tile[,] tileArray, Dir currentDirection)
+        {
+            List<Node> openList = new List<Node>();
+            List<Node> closedList = new List<Node>();
+
+            Node startNode = new Node(startPos, tileArray);
+            Node endNode = new Node(endPos, tileArray);
+            startNode.setIgnoreDirection(currentDirection);
+            openList.Add(startNode.Copy(tileArray));
+
+            bool foundPath = false;
+            Node currentNode = openList[0].Copy(tileArray);
+            while (openList.Count > 0)
+            {
+                currentNode = openList[0].Copy(tileArray);
+                for (int i = 1; i < openList.Count; i++)
+                {
+                    if (openList[i].fCost < currentNode.fCost || openList[i].fCost == currentNode.fCost && openList[i].hCost < currentNode.hCost)
+                    {
+                        currentNode = openList[i].Copy(tileArray);
+                    }
+                }
+
+                deleteNodeOnList(currentNode, openList);
+                closedList.Add(currentNode.Copy(tileArray));
+
+                if (currentNode.pos == endNode.pos)
+                {
+                    foundPath = true;
+                    break;
+                }
+
+                foreach (Node neighbour in currentNode.getNeighbours(tileArray))
+                {
+                    if (!neighbour.isWalkable || isNodeInsideList(neighbour, closedList))
+                    {
+                        continue;
+                    }
+
+                    int newMovementCostToNeighbour = currentNode.gCost + getDistance(currentNode, neighbour);
+                    if (newMovementCostToNeighbour < neighbour.gCost || !isNodeInsideList(neighbour, openList))
+                    {
+                        neighbour.gCost = newMovementCostToNeighbour;
+                        neighbour.hCost = getDistance(neighbour, endNode);
+                        neighbour.setParent(currentNode.Copy(tileArray));
+
+                        if (!isNodeInsideList(neighbour, openList))
+                        {
+                            openList.Add(neighbour.Copy(tileArray));
+                        }
+                    }
+                }
+            }
+
+            if (foundPath)
+            {
+                List<Vector2> path = new List<Vector2>();
+                while(currentNode.pos != startNode.pos)
+                {
+                    path.Add(currentNode.pos);
+                    currentNode = currentNode.parent.Copy(tileArray);
+                }
+                path.Reverse();
+                return path;
+            }
+            else
+            {
+                return new List<Vector2>();
+            }
+        }
+
+        public static void deleteNodeOnList(Node n, List<Node> nodeList)
+        {
+            for (int i = 0; i < nodeList.Count; i++)
+            {
+                if (nodeList[i].pos == n.pos)
+                {
+                    nodeList.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
+        public static bool isNodeInsideList(Node n, List<Node> nodeList)
+        {
+            foreach (Node node in nodeList)
+            {
+                if (node.pos == n.pos)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static int getDistance(Node nodeA, Node nodeB)
+        {
+            int distX = (int)(nodeA.pos.X - nodeB.pos.X);
+            int distY = (int)(nodeA.pos.Y - nodeB.pos.Y);
+
+            if (distX < 0)
+                distX *= -1;
+            if (distY < 0)
+                distY *= -1;
+
+            int totalDist = distX + distY;
+
+            return totalDist;
+        }
+
+    }
+}
+```
+
 <a name="player"></a>
 ## 	 	__Player.cs:__
 Este código implementa a classe Player para controlar o personagem do jogador no jogo Pac-Man. Aqui estão suas principais características:
@@ -523,6 +651,133 @@ Métodos Construtores: Fornece várias opções para inicializar a animação co
 Métodos de Atualização e Desenho: Atualiza o frame da animação com base no tempo decorrido e desenha o frame atual na tela. Dependendo das configurações, a animação pode ser em loop ou reproduzida uma vez e, em seguida, parar.
 Essa classe é fundamental para criar e exibir animações de sprites em um jogo, permitindo que elementos do jogo, como personagens e objetos, tenham movimentos suaves e realistas.
 
+```
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Pacman
+{
+    public class SpriteAnimation
+    {
+        private float timer = 0;
+        private float threshold;
+        private Rectangle[] sourceRectangles;
+        private int animationIndex = 0;
+        private bool isLooped = true;
+        private bool isPlaying;
+
+        public int AnimationIndex
+        {
+            get { return animationIndex; }
+        }
+
+        public bool IsPlaying
+        {
+            get { return isPlaying; }
+            set { isPlaying = value; }
+        }
+
+        public SpriteAnimation(float newThreshold, Rectangle[] newSourceRectangles)
+        {
+            threshold = newThreshold;
+            sourceRectangles = newSourceRectangles;
+            isPlaying = true;
+        }
+
+        public SpriteAnimation(float newThreshold, Rectangle[] newSourceRectangles, int startingAnimIndex)
+        {
+            threshold = newThreshold;
+            sourceRectangles = newSourceRectangles;
+            animationIndex = startingAnimIndex;
+            isPlaying = true;
+        }
+
+        public SpriteAnimation(float newThreshold, Rectangle[] newSourceRectangles, int startingAnimIndex, bool newIsLooped, bool newIsPlaying)
+        {
+            threshold = newThreshold;
+            sourceRectangles = newSourceRectangles;
+            animationIndex = startingAnimIndex;
+            isLooped = newIsLooped;
+            isPlaying = newIsPlaying;
+        }
+
+        public void setAnimIndex (int newAnimIndex)
+        {
+            animationIndex = newAnimIndex;
+        }
+
+        public void setSourceRects(Rectangle[] newSourceRects)
+        {
+            if (newSourceRects.Length != sourceRectangles.Length)
+                animationIndex = 0;
+            sourceRectangles = newSourceRects;
+        }
+
+        public void start()
+        {
+            isPlaying = true;
+            animationIndex = 0;
+        }
+
+        public Rectangle[] SourceRectangles
+        {
+            get { return sourceRectangles; }
+        }
+
+        public void Update(GameTime gameTime)
+        {
+            if (isLooped)
+            {
+                timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                if (timer > threshold)
+                {
+                    timer -= threshold;
+                    if (animationIndex < sourceRectangles.Length - 1)
+                    {
+                        animationIndex++;
+                    }
+                    else
+                    {
+                        animationIndex = 0;
+                    }
+                }
+                return;
+            }
+            // if not looped, plays animation once and then stops (by setting isPlaying to false)
+            else
+            {
+                if (isPlaying)
+                {
+                    timer += (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (timer > threshold)
+                    {
+                        timer -= threshold;
+                        if (animationIndex < sourceRectangles.Length - 1)
+                        {
+                            animationIndex++;
+                        }
+                        else
+                        {
+                            isPlaying = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        public void Draw(SpriteBatch spriteBatch, SpriteSheet spriteSheet, Vector2 position)
+        {
+            if (isPlaying)
+                spriteSheet.drawSprite(spriteBatch, sourceRectangles[animationIndex], position);
+        }
+    }
+}
+```
 <a name="text"></a>
 ## 	 	__Text.cs:__
 Essa classe, Text, é responsável por desenhar texto na tela do jogo usando uma folha de sprite. Aqui estão suas principais características:
