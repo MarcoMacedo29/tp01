@@ -9,7 +9,7 @@
 6. [__Conclusão__](#Conclusão)
 
 # __Introdução__
-Este relatório apresenta a implementação de uma versão simplificada do jogo Pac-Man, desenvolvida utilizando o framework MonoGame em C#. O objetivo é fornecer uma visão geral da estrutura do projeto, decisões de implementação e instruções de jogo. Além disso, será feita uma análise dos códigos disponibilizados, abordando a organização e a lógica implementada.
+Neste trabalho vamos apresentar a implementação de uma versão simplificada do jogo Pac-Man, desenvolvida utilizando o framework MonoGame em C#. O objetivo é fornecer uma visão geral da estrutura do projeto, decisões de implementação e instruções de jogo. Além disso, será feita uma análise dos códigos disponibilizados, abordando a organização e a lógica implementada.
 <p align="center">
   <img src="https://s2-techtudo.glbimg.com/Zgdo7fpjWUEzhDFBuMthj2OXnRw=/0x0:695x390/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/o/S/uINhTlQ8KW9l4wvqsu4g/2014-10-01-pac-man-curiosidades-classico.jpg"  alt="Pacman" width=700>
 </p>
