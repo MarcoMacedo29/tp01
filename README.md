@@ -5,7 +5,7 @@
 # Introdução:
 Este relatório apresenta a implementação de uma versão simplificada do jogo Pac-Man, desenvolvida utilizando o framework MonoGame em C#. O objetivo é fornecer uma visão geral da estrutura do projeto, decisões de implementação e instruções de jogo. Além disso, será feita uma análise dos códigos disponibilizados, abordando a organização e a lógica implementada.
 <p align="center">
-  <img src="https://s2-techtudo.glbimg.com/Zgdo7fpjWUEzhDFBuMthj2OXnRw=/0x0:695x390/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/o/S/uINhTlQ8KW9l4wvqsu4g/2014-10-01-pac-man-curiosidades-classico.jpg"  alt="Front-end Brasil" width=800>
+  <img src="https://s2-techtudo.glbimg.com/Zgdo7fpjWUEzhDFBuMthj2OXnRw=/0x0:695x390/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/o/S/uINhTlQ8KW9l4wvqsu4g/2014-10-01-pac-man-curiosidades-classico.jpg"  alt="Pacman" width=800>
 </p>
 
 # Implementação:
@@ -177,5 +177,7 @@ Essa classe é fundamental para representar e interagir com os diferentes elemen
 # Conclusão:
 Implementamos com sucesso uma versão simplificada do clássico Pac-Man usando MonoGame em C#. Este projeto recria a emoção do jogo original, mantendo a jogabilidade icônica e desafiadora. Com controles simples e objetivos claros, o jogo oferece uma experiência divertida e envolvente para jogadores de todas as idades. A combinação de design retro com tecnologia moderna torna esta versão do Pac-Man uma homenagem ao legado duradouro deste jogo atemporal.
 
-
+<p align="center">
+  <img src="https://lh4.googleusercontent.com/proxy/Pk0kAWyTCeDVYcgMK34QZbTBDLMRxyOAU_fmoxJUxoJs2Mjge3j6gBT3HY6bIGodMr233c4D1hk-_jPB-P38AJPIYu0QAtIZFPayv_1TlP1cYAYCa2Sr4h8J_yVe" width="300" alt="Pacman">
+</p>
 
