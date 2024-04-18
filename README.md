@@ -118,10 +118,10 @@ namespace Pacman
 ```
 
 ## 	 	__Controller.cs:__
-A classe Controller gerencia a lógica do jogo Pac-Man. Ela mantém informações sobre o estado do jogo, como a grade do mapa, a posição dos lanches, o estado dos fantasmas e do Pac-Man, entre outros. Além disso, controla a transição entre os estados dos fantasmas (perseguir ou dispersar), cria e reinicia os fantasmas quando necessário, e verifica se os caminhos estão disponíveis para movimento.
+A classe Controller é responsável pelo controle do jogo, incluindo a criação do mapa, a lógica dos fantasmas, a verificação do tipo de bloco e muito mais. Ela mantém o estado do jogo, como o estado dos fantasmas, a pontuação, as vidas extras do jogador e assim por diante. 
 
-O código utiliza estruturas de repetição para inicializar a grade do mapa com base em um array bidimensional, onde cada número representa um tipo de elemento no jogo, como paredes, lanches, casa dos fantasmas, entre outros. Ele também implementa métodos para desenhar a grade de depuração do mapa, bem como para desenhar e atualizar os fantasmas e os caminhos de busca.
-Além disso, a classe gerencia eventos como a vitória do jogador, o fim do jogo, a morte do Pac-Man e o reinício do jogo. O código é organizado e modular, permitindo um controle eficiente do estado e do comportamento do jogo.
+Além disso, gerencia a criação e o controle dos objetos no jogo, como snacks e fantasmas, e possui métodos para atualizar e desenhar elementos do jogo, como fantasmas, snacks e a grade de debug.
+
 
 ## 		__MySounds.cs:__
 Este código define uma classe estática chamada MySounds que armazena referências para efeitos sonoros do jogo Pac-Man. 
@@ -215,18 +215,57 @@ namespace Pacman
 ```
 
 ## 	 	__Menu.cs:__
-Esse código implementa a classe Menu, responsável por gerenciar e exibir o menu principal do jogo Pac-Man. Aqui está uma análise:
-Campos e Propriedades:
-pacmanLogo: Armazena a textura do logotipo do Pac-Man.
-pacmanLogoPos: Armazena a posição e o tamanho onde o logotipo do Pac-Man será desenhado.
-basicFont: Armazena a fonte usada para renderizar o texto.
-basicFontPos: Armazena a posição onde o texto será desenhado.
-Método Update:
-Verifica se a tecla Enter foi pressionada.
-Se sim, muda o estado do jogo para o modo normal e inicia a reprodução do som de início de jogo.
-Método Draw:
-Renderiza o texto "PRESS ENTER TO PLAY" na tela com a fonte básica definida anteriormente e na cor vermelha.
-Desenha o logotipo do Pac-Man na tela na posição e tamanho definidos.
+O Menu.cs, responsável por exibir e gerenciar o menu inicial do jogo. Ela contém métodos para atualizar e desenhar o menu na tela, incluindo o logotipo do Pac-Man e a mensagem "PRESS ENTER TO PLAY". 
+
+Quando o jogador pressiona a tecla Enter, o estado do jogo muda para o modo normal e o som de início do jogo é reproduzido.
+
+```
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
+
+namespace Pacman
+{
+    public static class Menu
+    {
+        private static Texture2D pacmanLogo;
+        private static Rectangle pacmanLogoPos = new Rectangle(13, 40, 4530/7, 1184/7);
+        private static SpriteFont basicFont;
+        private static Vector2 basicFontPos = new Vector2(150, 400);
+
+        public static SpriteFont setBasicFont
+        {
+            set { basicFont = value; }
+        }
+
+        public static Texture2D setPacmanLogo
+        {
+            set { pacmanLogo = value; }
+        }
+
+        public static void Update(GameTime gameTime)
+        {
+            KeyboardState kState = Keyboard.GetState();
+            if (kState.IsKeyDown(Keys.Enter))
+            {
+                Game1.gameController.gameState = Controller.GameState.Normal;
+                MySounds.game_start.Play();
+            }
+        }
+
+        public static void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.DrawString(basicFont, "PRESS ENTER TO PLAY", basicFontPos, Color.Red);
+            spriteBatch.Draw(pacmanLogo, pacmanLogoPos, Color.White);
+        }
+    }
+}
+```
 
 ## 	 	__Node.cs:__
 A classe Node neste código serve como uma representação abstrata de um ponto específico no mapa do jogo Pac-Man. Ela é essencial para o algoritmo de busca utilizado para calcular os caminhos que os fantasmas devem seguir para alcançar o jogador. Cada nó armazena informações importantes, como sua posição, se é ou não um local onde os fantasmas podem se mover, os custos associados ao movimento até esse ponto e uma referência ao nó pai. 
