@@ -78,6 +78,40 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 ## 	__Inky.cs, Blinky.cs, Pinky.cs, Lyde.cs:__
 Cada ficheiro de cada um representa o inimigo no jogo Pac-Man. Ela herda da classe base Enemy e é responsável por inicializar as características específicas do inimigo, como seu alvo de dispersão, retângulos de animação e comportamento de perseguição. O código implementa métodos para determinar a posição do alvo de perseguição do inimigo com base na distância em relação ao jogador. Em resumo, esta classe organiza o comportamento e as propriedades do inimigo no contexto do jogo Pac-Man.
 
+```
+using System.Collections.Generic;
+using System.Linq;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace Pacman
+{
+    public class Blinky : Enemy
+    {
+        public Blinky(int tileX, int tileY, Tile[,] tileArray) : base(tileX, tileY, tileArray)
+        {
+            ScatterTargetTile = new Vector2(26, 2);
+            type = GhostType.Blinky;
+
+            rectsDown[0] = new Rectangle(1659, 195, 42, 42);
+            rectsDown[1] = new Rectangle(1707, 195, 42, 42);
+
+            rectsUp[0] = new Rectangle(1563, 195, 42, 42);
+            rectsUp[1] = new Rectangle(1611, 195, 42, 42);
+
+            rectsLeft[0] = new Rectangle(1467, 195, 42, 42);
+            rectsLeft[1] = new Rectangle(1515, 195, 42, 42);
+
+            rectsRight[0] = new Rectangle(1371, 195, 42, 42);
+            rectsRight[1] = new Rectangle(1419, 195, 42, 42);
+
+            enemyAnim = new SpriteAnimation(0.08f, rectsLeft);
+        }
+    }
+}
+```
+
 ## 	 	__Controller.cs:__
 A classe Controller gerencia a lógica do jogo Pac-Man. Ela mantém informações sobre o estado do jogo, como a grade do mapa, a posição dos lanches, o estado dos fantasmas e do Pac-Man, entre outros. Além disso, controla a transição entre os estados dos fantasmas (perseguir ou dispersar), cria e reinicia os fantasmas quando necessário, e verifica se os caminhos estão disponíveis para movimento.
 O código utiliza estruturas de repetição para inicializar a grade do mapa com base em um array bidimensional, onde cada número representa um tipo de elemento no jogo, como paredes, lanches, casa dos fantasmas, entre outros. Ele também implementa métodos para desenhar a grade de depuração do mapa, bem como para desenhar e atualizar os fantasmas e os caminhos de busca.
