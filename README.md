@@ -1,13 +1,13 @@
 # Trabalho Prático01 - Jogo Pacman em MonoGame com C# - Engenharia e Desenvolvimento de Jogos Digitais - Marco Macedo nº27919 / Miguel Freitas nº29562 
 
 
-# Introdução:
+# Introdução
 Este relatório apresenta a implementação de uma versão simplificada do jogo Pac-Man, desenvolvida utilizando o framework MonoGame em C#. O objetivo é fornecer uma visão geral da estrutura do projeto, decisões de implementação e instruções de jogo. Além disso, será feita uma análise dos códigos disponibilizados, abordando a organização e a lógica implementada.
 <p align="center">
   <img src="https://s2-techtudo.glbimg.com/Zgdo7fpjWUEzhDFBuMthj2OXnRw=/0x0:695x390/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/o/S/uINhTlQ8KW9l4wvqsu4g/2014-10-01-pac-man-curiosidades-classico.jpg"  alt="Pacman" width=700>
 </p>
 
-# Implementação:
+# Implementação
 •	Estrutura de Pastas:
 PacMan/
 |-- Content/
@@ -37,7 +37,7 @@ PacMan/
 Content/: Contém recursos como imagens, fontes e sons.
 Code/: Contém o código-fonte do jogo organizado em entidades, gerenciadores, telas e ajudantes.
 
-# Instruções de Jogo:
+# Instruções de Jogo
 * Objetivo:
 Mova o Pac-Man pelo labirinto para comer todos os pontos e evitar os fantasmas.
 * Controles
@@ -48,7 +48,7 @@ Vidas: Você tem um número limitado de vidas.
 * Pontuação
 Acumule pontos comendo os pontos pelo labirinto.
 
-# Decisões de Implementação:
+# Decisões de Implementação
 *	Entidades:
 PacMan: Representa o jogador controlável.
 Ghost: Representa os inimigos que perseguem o Pac-Man.
@@ -59,7 +59,7 @@ GameScreen: Controla o fluxo do jogo, como iniciar, pausar e encerrar.
 *	Ajudantes:
 CollisionHelper: Auxilia na detecção de colisões entre entidades.
 
-# Análise dos Códigos Disponibilizados:
+# Análise dos Códigos Disponibilizados
 
 ## 	Inky.cs, Blinky.cs, Pinky.cs, Lyde.cs:
 Cada ficheiro de cada um representa o inimigo no jogo Pac-Man. Ela herda da classe base Enemy e é responsável por inicializar as características específicas do inimigo, como seu alvo de dispersão, retângulos de animação e comportamento de perseguição. O código implementa métodos para determinar a posição do alvo de perseguição do inimigo com base na distância em relação ao jogador. Em resumo, esta classe organiza o comportamento e as propriedades do inimigo no contexto do jogo Pac-Man.
@@ -192,7 +192,7 @@ Essa classe é fundamental para representar e interagir com os diferentes elemen
 O código define uma série de enums para os tipos de fantasmas (GhostType) e estados do inimigo (EnemyState).Há a definição de diversas propriedades e variáveis para controlar a posição, direção, velocidade e estado dos fantasmas, bem como para armazenar informações sobre as animações dos mesmos.O construtor da classe inicializa várias dessas propriedades com valores padrão e configura as animações dos fantasmas.Há métodos para desenhar (Draw) e atualizar (Update) os fantasmas no jogo. Isso inclui lógica para decidir a direção dos fantasmas, movê-los pelo tabuleiro e lidar com a colisão deles com o jogador ou com outros elementos do jogo.Existem métodos para calcular a posição alvo dos fantasmas em diferentes estados do jogo, como perseguição, fuga e quando são comidos pelo jogador.
 Além disso, há métodos para lidar com eventos específicos, como quando um fantasma é comido pelo jogador. Basicamente esta parte define como os fantasmas se movem, reagem aos eventos do jogo e interagem com o jogador. 
 
-# Conclusão:
+# Conclusão
 Implementamos com sucesso uma versão simplificada do clássico Pac-Man usando MonoGame em C#. Este projeto recria a emoção do jogo original, mantendo a jogabilidade icônica e desafiadora. Com controles simples e objetivos claros, o jogo oferece uma experiência divertida e envolvente para jogadores de todas as idades. A combinação de design retro com tecnologia moderna torna esta versão do Pac-Man uma homenagem ao legado duradouro deste jogo atemporal.
 
 <p align="center">
