@@ -634,12 +634,9 @@ namespace Pacman
 ```
 <a name="spriteanimation"></a>
 ## 	 	__SpriteAnimation.cs:__
-Esta classe, SpriteAnimation, é responsável por gerenciar a animação de sprites em um jogo. Aqui está uma explicação das suas principais características:
-Atributos: Inclui um temporizador para controlar a taxa de atualização da animação, um conjunto de retângulos de origem que representam os frames da animação, um índice de animação para acompanhar o frame atual, e variáveis para controlar se a animação está em loop e se está sendo reproduzida.
-Métodos Construtores: Fornece várias opções para inicializar a animação com diferentes configurações, como especificar o limiar de tempo, os retângulos de origem e o índice de animação inicial.
-Métodos de Atualização e Desenho: Atualiza o frame da animação com base no tempo decorrido e desenha o frame atual na tela. Dependendo das configurações, a animação pode ser em loop ou reproduzida uma vez e, em seguida, parar.
-Essa classe é fundamental para criar e exibir animações de sprites em um jogo, permitindo que elementos do jogo, como personagens e objetos, tenham movimentos suaves e realistas.
+O SpriteAnimation.cs controla a reprodução de uma série de retângulos que representam diferentes quadros da animação. 
 
+A classe permite controlar a reprodução, pausa e reinício da animação, além de desenhar os quadros animados na tela.
 ```
 using System;
 using System.Collections.Generic;
