@@ -19,31 +19,31 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 
 ## __Estrutura de Pastas:__
 
-* PacMan/
-  - |-- Content/
-  - |-- Fonts/
-  - |-- SpriteSheets/
-  - |-- Sounds/
+* __PacMan/__
+    - |-- Content/
+    - |-- Fonts/
+    - |-- SpriteSheets/
+    - |-- Sounds/
 
-* Code/
-  - |-- Blinky.cs
-  - |-- Clyde.cs
-  - |-- Enemy.cs
-  - |-- Game1.cs
-  - |-- GameOver.cs
-  - |-- Inky.cs
-  - |-- Menu.cs
-  - |-- MySounds.cs
-  - |-- Node.cs
-  - |-- Pathfinding.cs
-  - |-- Pinky.cs
-  - |-- Player.cs
-  - |-- Program.cs
-  - |-- Snack.cs
-  - |-- SpriteAnimation.cs
-  - |-- SpriteSheet.cs
-  - |-- Text.cs
-  - |-- Title.cs
+* __Code/__
+    - |-- Blinky.cs
+    - |-- Clyde.cs
+    - |-- Enemy.cs
+    - |-- Game1.cs
+    - |-- GameOver.cs
+    - |-- Inky.cs
+    - |-- Menu.cs
+    - |-- MySounds.cs
+    - |-- Node.cs
+    - |-- Pathfinding.cs
+    - |-- Pinky.cs
+    - |-- Player.cs
+    - |-- Program.cs
+    - |-- Snack.cs
+    - |-- SpriteAnimation.cs
+    - |-- SpriteSheet.cs
+    - |-- Text.cs
+    - |-- Title.cs
 
 - __Pacman/:__ Contém recursos como imagens, fontes e sons.
 - __Code/:__ Contém o código-fonte do jogo organizado em entidades, gerenciadores, telas e ajudantes.
