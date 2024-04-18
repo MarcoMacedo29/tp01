@@ -403,14 +403,10 @@ namespace Pacman
 ```
 <a name="pathfinding"></a>
 ##  __Pathfinfinding.cs:__
-Este código implementa um algoritmo de busca chamado A* (A estrela) para encontrar o caminho mais curto entre dois pontos em um labirinto, usado no jogo Pac-Man para os fantasmas perseguirem o jogador. O
-algoritmo:
-Inicializa duas listas: uma para nós a serem examinados e outra para nós já examinados.
-Itera até encontrar o destino ou esgotar os nós a serem examinados.
-Seleciona o próximo nó com o menor custo total para exploração.
-Expande os nós vizinhos, calculando custos e atualizando caminhos se necessário.
-Reconstrói o caminho mais curto se encontrado.
-Essa implementação é crucial para o comportamento inteligente dos fantasmas, permitindo que eles naveguem pelo labirinto e persigam o jogador de forma eficiente.
+O Pathfinding.cs  encontra o caminho mais curto entre dois pontos no mapa do jogo, considerando os obstáculos e escolhendo o caminho mais eficiente possível. 
+
+Isso é crucial para os inimigos do jogo (fantasmas) planejarem seus movimentos para perseguir o jogador enquanto evitam colisões com paredes e obstáculos.
+
 
 ```
 using System;
@@ -541,14 +537,10 @@ namespace Pacman
 
 <a name="player"></a>
 ## 	 	__Player.cs:__
-Este código implementa a classe Player para controlar o personagem do jogador no jogo Pac-Man. Aqui estão suas principais características:
-Atributos: Define a posição, direção, velocidade e animações do jogador, bem como variáveis para controle de movimento, temporizadores e vidas extras.
-Inicialização: Configura a posição inicial do jogador no labirinto e define os retângulos para animações de movimento e de morte.
-Atualização: Processa entrada do teclado para definir a próxima direção de movimento do jogador e atualiza sua posição de acordo. Também gerencia animações de movimento.
-Interseção com Tiles: Verifica se o jogador está sobre um determinado tile no labirinto e executa ações correspondentes, como comer snacks ou teletransportar.
-Desenho: Desenha o jogador na tela usando animações de sprite.
-Essa classe é fundamental para controlar a mecânica do jogo e interagir com o ambiente do labirinto e os elementos do jogo, como os snacks e os teletransportadores. 
-mas em atualizaçao meter update e o mesmo no desenho e atributos e assim.
+O player.cs controla todos os aspectos relacionados ao jogador dentro do jogo. Isso inclui sua posição, direção de movimento, animação, interações com os objetos do ambiente, como comer bolinhas, e a lógica de teletransporte entre os lados do mapa.
+
+No geral o código centraliza todas as operações e comportamentos do jogador dentro do contexto do jogo.
+
 
 <a name="program"></a>
 ## 		__Program.cs:__
