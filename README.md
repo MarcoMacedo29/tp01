@@ -166,13 +166,9 @@ namespace Pacman
 }
 ```
 ## 		__Game1.cs:__
-Este código é a classe principal do jogo Pac-Man, chamada Game1. Ela contém a lógica principal do jogo, incluindo a inicialização, carregamento de conteúdo, atualização e renderização dos elementos do jogo.
-Variáveis e campos: Define diversos campos estáticos e instâncias necessárias para controlar o jogo, como o controlador do jogo, texturas, animações e sons.
-Métodos de inicialização: Initialize e LoadContent são chamados durante a inicialização do jogo para configurar o ambiente e carregar recursos, como sprites e sons.
-Métodos de atualização e desenho: Update e Draw são responsáveis por atualizar e renderizar os elementos do jogo, como o jogador (Pac-Man), fantasmas, pontos de comida e outros elementos visuais.
-Lógica do jogo: Controla o fluxo do jogo, incluindo a detecção de colisões, movimentação dos personagens, gerenciamento de vidas, pontuação e transições de estado do jogo (como menu, jogo em andamento e game over).
-Interação com o usuário: Permite que o jogador controle o Pac-Man usando o teclado e define as condições de vitória e derrota.
-Renderização de elementos de interface: Desenha elementos como a pontuação, vidas restantes e outros textos na tela.
+O Game1.cs é o principal do jogo Pac-Man, onde a maioria das operações essenciais acontecem. Ela gerencia o ciclo de vida do jogo, desde sua inicialização até a renderização na tela. Responsável por carregar recursos, como imagens e sons, também coordena a interação entre os elementos do jogo, como os fantasmas, o jogador e os itens. Além disso, controla o estado do jogo, como pausas, game over e retorno ao menu principal. 
+
+Em resumo, é responsável por garantir uma experiência de jogo fluida e envolvente para o jogador.
 
 ## 	 	__GameOver.cs:__
 Esta parte do código implementa a classe GameOver, responsável por gerenciar e exibir a tela de fim de jogo no Pac-Man. Aqui está uma análise:
