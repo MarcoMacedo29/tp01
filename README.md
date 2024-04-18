@@ -68,9 +68,9 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 *  __Gerenciadores:__
      - __GameManager:__ Gerencia o estado geral do jogo, como pontuação e vidas.
 *	 __Telas:__
-     - GameScreen: Controla o fluxo do jogo, como iniciar, pausar e encerrar.
+     - __GameScreen:__ Controla o fluxo do jogo, como iniciar, pausar e encerrar.
 *	 __Ajudantes:__
-     - CollisionHelper: Auxilia na detecção de colisões entre entidades.
+     - __CollisionHelper:__ Auxilia na detecção de colisões entre entidades.
 
 <a name="analise"></a>
 # __Análise dos Códigos Disponibilizados__
