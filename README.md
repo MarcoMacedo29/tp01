@@ -1,8 +1,12 @@
 # Trabalho Prático01 - Jogo Pacman em MonoGame com C# - Engenharia e Desenvolvimento de Jogos Digitais - Marco Macedo nº27919 / Miguel Freitas nº29562 
 
+<p align="center">
+  <img src="https://cdn.content.jogos123.net/game-images/pacman_xl.jpg" width="400" alt="Front-end Brasil">
+</p>
 
 # Introdução:
 Este relatório apresenta a implementação de uma versão simplificada do jogo Pac-Man, desenvolvida utilizando o framework MonoGame em C#. O objetivo é fornecer uma visão geral da estrutura do projeto, decisões de implementação e instruções de jogo. Além disso, será feita uma análise dos códigos disponibilizados, abordando a organização e a lógica implementada.
+
 
 # Implementação:
 •	Estrutura de Pastas:
