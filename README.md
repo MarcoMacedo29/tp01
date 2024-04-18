@@ -122,7 +122,7 @@ Método getNeighbours:
 Obtém os vizinhos navegáveis do nó, excluindo a direção especificada para ignorar.
 Verifica se os vizinhos estão dentro dos limites do mapa e se são navegáveis.
 Essa classe é fundamental para o algoritmo de busca A* usado para calcular caminhos para os fantasmas no jogo Pac-Man, garantindo que eles se movam de forma inteligente pelo labirinto, evitando paredes e alcançando o jogador de forma eficiente.
-* 	Pathfinfings.cs:
+##	Pathfinfings.cs:
 Este código implementa um algoritmo de busca chamado A* (A estrela) para encontrar o caminho mais curto entre dois pontos em um labirinto, usado no jogo Pac-Man para os fantasmas perseguirem o jogador. O algoritmo:
 Inicializa duas listas: uma para nós a serem examinados e outra para nós já examinados.
 Itera até encontrar o destino ou esgotar os nós a serem examinados.
