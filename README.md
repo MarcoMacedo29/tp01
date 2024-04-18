@@ -30,21 +30,21 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
     - [|-- Blinky.cs](#4codigos)
     - [|-- Pinky.cs](#4codigos)  
     - [|-- Clyde.cs](#4codigos)
-    - [|-- Controller.cs](##Controller:)
-    - [|-- MySounds.cs](##MySounds:)
-    - [|-- Game1.cs](##Game1.cs:)
-    - |-- GameOver.cs
-    - |-- Menu.cs
-    - |-- Node.cs
-    - |-- Pathfinding.cs
-    - |-- Player.cs
-    - |-- Program.cs
-    - |-- Snack.cs
-    - |-- SpriteAnimation.cs
-    - |-- Text.cs
-    - |-- Tile.cs 
-    - |-- Enemy.cs
-    - |-- SpriteSheet.cs
+    - [|-- Controller.cs](#controller)
+    - [|-- MySounds.cs](#mysounds)
+    - [|-- Game1.cs](#game1)
+    - [|-- GameOver.cs](#gameover)
+    - [|-- Menu.cs](#menu)
+    - [|-- Node.cs](#node)
+    - [|-- Pathfinding.cs](#pathfinding)
+    - [|-- Player.cs](#player)
+    - [|-- Program.cs](#program)
+    - [|-- Snack.cs](#snack)
+    - [|-- SpriteAnimation.cs](#spriteanimation)
+    - [|-- Text.cs](#text)
+    - [|-- Tile.cs](#tile)
+    - [|-- Enemy.cs](#enemy)
+    - [|-- SpriteSheet.cs](#spritesheet)
     
     
 
@@ -118,12 +118,13 @@ namespace Pacman
 }
 ```
 
+<a name="controller"></a>
 ## 	 	__Controller.cs:__
 A classe Controller é responsável pelo controle do jogo, incluindo a criação do mapa, a lógica dos fantasmas, a verificação do tipo de bloco e muito mais. Ela mantém o estado do jogo, como o estado dos fantasmas, a pontuação, as vidas extras do jogador e assim por diante. 
 
 Além disso, gerencia a criação e o controle dos objetos no jogo, como snacks e fantasmas, e possui métodos para atualizar e desenhar elementos do jogo, como fantasmas, snacks e a grade de debug.
 
-
+<a name="mysounds"></a>
 ## 		__MySounds.cs:__
 Este código define uma classe estática chamada MySounds que armazena referências para efeitos sonoros do jogo Pac-Man. 
 
@@ -166,11 +167,13 @@ namespace Pacman
     }
 }
 ```
+<a name="game1"></a>
 ## 		__Game1.cs:__
 O Game1.cs é o principal do jogo Pac-Man, onde a maioria das operações essenciais acontecem. Ela gerencia o ciclo de vida do jogo, desde sua inicialização até a renderização na tela. Responsável por carregar recursos, como imagens e sons, também coordena a interação entre os elementos do jogo, como os fantasmas, o jogador e os itens. Além disso, controla o estado do jogo, como pausas, game over e retorno ao menu principal. 
 
 Em resumo, é responsável por garantir uma experiência de jogo fluida e envolvente para o jogador.
 
+<a name="gameover"></a>
 ## 	 	__GameOver.cs:__
 A classe GameOver controla a tela de fim de jogo. Quando a tecla de espaço é pressionada, ela volta ao menu principal. 
 
@@ -214,7 +217,7 @@ namespace Pacman
     }
 }
 ```
-
+<a name="menu"></a>
 ## 	 	__Menu.cs:__
 O Menu.cs, responsável por exibir e gerenciar o menu inicial do jogo. Ela contém métodos para atualizar e desenhar o menu na tela, incluindo o logotipo do Pac-Man e a mensagem "PRESS ENTER TO PLAY". 
 
@@ -267,7 +270,7 @@ namespace Pacman
     }
 }
 ```
-
+<a name="node"></a>
 ## 	 	__Node.cs:__
 A classe Node neste código serve como uma representação abstrata de um ponto específico no mapa do jogo Pac-Man. Ela é essencial para o algoritmo de busca utilizado para calcular os caminhos que os fantasmas devem seguir para alcançar o jogador. Cada nó armazena informações importantes, como sua posição, se é ou não um local onde os fantasmas podem se mover, os custos associados ao movimento até esse ponto e uma referência ao nó pai. 
 
@@ -397,7 +400,8 @@ namespace Pacman
     }
 }
 ```
-##  __Pathfinfings.cs:__
+<a name="pathfinding"></a>
+##  __Pathfinfinding.cs:__
 Este código implementa um algoritmo de busca chamado A* (A estrela) para encontrar o caminho mais curto entre dois pontos em um labirinto, usado no jogo Pac-Man para os fantasmas perseguirem o jogador. O
 algoritmo:
 Inicializa duas listas: uma para nós a serem examinados e outra para nós já examinados.
@@ -407,6 +411,7 @@ Expande os nós vizinhos, calculando custos e atualizando caminhos se necessári
 Reconstrói o caminho mais curto se encontrado.
 Essa implementação é crucial para o comportamento inteligente dos fantasmas, permitindo que eles naveguem pelo labirinto e persigam o jogador de forma eficiente.
 
+<a name="player"></a>
 ## 	 	__Player.cs:__
 Este código implementa a classe Player para controlar o personagem do jogador no jogo Pac-Man. Aqui estão suas principais características:
 Atributos: Define a posição, direção, velocidade e animações do jogador, bem como variáveis para controle de movimento, temporizadores e vidas extras.
@@ -417,6 +422,7 @@ Desenho: Desenha o jogador na tela usando animações de sprite.
 Essa classe é fundamental para controlar a mecânica do jogo e interagir com o ambiente do labirinto e os elementos do jogo, como os snacks e os teletransportadores. 
 mas em atualizaçao meter update e o mesmo no desenho e atributos e assim.
 
+<a name="program"></a>
 ## 		__Program.cs:__
 Este código serve como o ponto de entrada para o jogo Pac-Man.
 ```
@@ -435,6 +441,8 @@ namespace Pacman
     }
 }
 ```
+
+<a name="snack"></a>
 ## 	 	__Snack.cs:__
 Este código implementa a classe Snack para representar os snacks (ou pontos) que o jogador pode coletar no jogo Pac-Man. Aqui está uma breve explicação das principais características desta classe:
 Enumerador SnackType: Define os tipos de snacks disponíveis, como "Small" (pequeno) e "Big" (grande).
@@ -507,7 +515,7 @@ namespace Pacman
     }
 }
 ```
-
+<a name="spriteanimation"></a>
 ## 	 	__SpriteAnimation.cs:__
 Esta classe, SpriteAnimation, é responsável por gerenciar a animação de sprites em um jogo. Aqui está uma explicação das suas principais características:
 Atributos: Inclui um temporizador para controlar a taxa de atualização da animação, um conjunto de retângulos de origem que representam os frames da animação, um índice de animação para acompanhar o frame atual, e variáveis para controlar se a animação está em loop e se está sendo reproduzida.
@@ -515,6 +523,7 @@ Métodos Construtores: Fornece várias opções para inicializar a animação co
 Métodos de Atualização e Desenho: Atualiza o frame da animação com base no tempo decorrido e desenha o frame atual na tela. Dependendo das configurações, a animação pode ser em loop ou reproduzida uma vez e, em seguida, parar.
 Essa classe é fundamental para criar e exibir animações de sprites em um jogo, permitindo que elementos do jogo, como personagens e objetos, tenham movimentos suaves e realistas.
 
+<a name="text"></a>
 ## 	 	__Text.cs:__
 Essa classe, Text, é responsável por desenhar texto na tela do jogo usando uma folha de sprite. Aqui estão suas principais características:
 Enumeração de Cores: Define uma enumeração para as cores do texto, como branco e vermelho.
@@ -523,6 +532,7 @@ Métodos Construtores: Define um método construtor para inicializar a folha de 
 Métodos de Desenho: Fornece métodos para desenhar texto na tela com diferentes cores e escalas. Os caracteres são desenhados com base na string fornecida e na posição especificada, com um espaçamento entre letras opcional.
 Essa classe é útil para exibir informações na tela do jogo, como pontuações, mensagens de texto e outros elementos de interface do usuário. Ela permite personalizar a aparência do texto e integrá-lo perfeitamente ao estilo visual do jogo.
 
+<a name="tile"></a>
 ## 	 	__Tile.cs:__
 Essa classe, Tile, representa um único tile no mapa do jogo Pac-Man. Aqui estão seus principais pontos:
 Enumeração de Tipos de Tiles: Define uma enumeração para os tipos de tiles, incluindo Nenhum, Parede, Fantasma, Casa dos Fantasmas, Jogador e Snack.
@@ -578,11 +588,12 @@ namespace Pacman
     }
 }
 ```
-
+<a name="enemy"></a>
 ## 	 	__Enemy.cs:__
 O código define uma série de enums para os tipos de fantasmas (GhostType) e estados do inimigo (EnemyState).Há a definição de diversas propriedades e variáveis para controlar a posição, direção, velocidade e estado dos fantasmas, bem como para armazenar informações sobre as animações dos mesmos.O construtor da classe inicializa várias dessas propriedades com valores padrão e configura as animações dos fantasmas.Há métodos para desenhar (Draw) e atualizar (Update) os fantasmas no jogo. Isso inclui lógica para decidir a direção dos fantasmas, movê-los pelo tabuleiro e lidar com a colisão deles com o jogador ou com outros elementos do jogo.Existem métodos para calcular a posição alvo dos fantasmas em diferentes estados do jogo, como perseguição, fuga e quando são comidos pelo jogador.
 Além disso, há métodos para lidar com eventos específicos, como quando um fantasma é comido pelo jogador. Basicamente esta parte define como os fantasmas se movem, reagem aos eventos do jogo e interagem com o jogador.
 
+<a name="spritesheet"></a>
 ## __SpriteSheet.cs:__
 O SpriteSheet.cs facilita o desenho de sprites em um jogo, permitindo a renderização eficiente de elementos visuais, como personagens e itens. 
 
