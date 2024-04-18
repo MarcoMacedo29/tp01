@@ -26,7 +26,7 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
     - |-- Sounds/
 
 * __Code/__
-    - |-- Inky.cs
+    - [|-- Inky.cs](#4codigos)
     - |-- Blinky.cs
     - |-- Pinky.cs  
     - |-- Clyde.cs
@@ -78,6 +78,7 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 <a name="analise"></a>
 # __Análise dos Códigos Disponibilizados__
 
+<a name="4codigos"></a>
 ## 	__Inky.cs, Blinky.cs, Pinky.cs, Clyde.cs:__
 Cada ficheiro de cada um representa o inimigo no jogo Pac-Man. Ela herda da classe base Enemy e é responsável por inicializar as características específicas do inimigo, como seu alvo de dispersão, retângulos de animação e comportamento de perseguição. 
 
