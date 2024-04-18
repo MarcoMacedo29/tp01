@@ -76,7 +76,9 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 # __Análise dos Códigos Disponibilizados__
 
 ## 	__Inky.cs, Blinky.cs, Pinky.cs, Lyde.cs:__
-Cada ficheiro de cada um representa o inimigo no jogo Pac-Man. Ela herda da classe base Enemy e é responsável por inicializar as características específicas do inimigo, como seu alvo de dispersão, retângulos de animação e comportamento de perseguição. O código implementa métodos para determinar a posição do alvo de perseguição do inimigo com base na distância em relação ao jogador. Em resumo, esta classe organiza o comportamento e as propriedades do inimigo no contexto do jogo Pac-Man.
+Cada ficheiro de cada um representa o inimigo no jogo Pac-Man. Ela herda da classe base Enemy e é responsável por inicializar as características específicas do inimigo, como seu alvo de dispersão, retângulos de animação e comportamento de perseguição. 
+
+O código implementa métodos para determinar a posição do alvo de perseguição do inimigo com base na distância em relação ao jogador. Em resumo, esta classe organiza o comportamento e as propriedades do inimigo no contexto do jogo Pac-Man. Como os códigos .cs são semelhantes , concluimos só mostrar um (Blinky.cs):
 
 ```
 using System.Collections.Generic;
