@@ -3,7 +3,10 @@
 # Indíce
 1. [__Implementação__](#Implementação)
 2. [__Instruções de Jogo__](#instru)
-3. [__Decisões de Implementação__](#Desições_de_Implementação)
+3. [__Decisões de Implementação__](#decisoes)
+4. [__Análise dos Códigos Disponibilizados__](#analise)
+5. [__Conclusão__](#Conclusão)
+
 # Introdução
 Este relatório apresenta a implementação de uma versão simplificada do jogo Pac-Man, desenvolvida utilizando o framework MonoGame em C#. O objetivo é fornecer uma visão geral da estrutura do projeto, decisões de implementação e instruções de jogo. Além disso, será feita uma análise dos códigos disponibilizados, abordando a organização e a lógica implementada.
 <p align="center">
@@ -56,6 +59,7 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 * __Pontuação:__
     - Acumule pontos comendo os pontos pelo labirinto.
 
+<a name="decisoes"></a>
 # Decisões de Implementação
 *  Entidades:
    - __PacMan:__ Representa o jogador controlável.
@@ -67,6 +71,7 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 *	 Ajudantes:
    - CollisionHelper: Auxilia na detecção de colisões entre entidades.
 
+<a name="analise"></a>
 # Análise dos Códigos Disponibilizados
 
 ## 	Inky.cs, Blinky.cs, Pinky.cs, Lyde.cs:
