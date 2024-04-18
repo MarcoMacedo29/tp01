@@ -834,7 +834,7 @@ Além disso, há métodos para lidar com eventos específicos, como quando um fa
 ## __SpriteSheet.cs:__
 O SpriteSheet.cs facilita o desenho de sprites em um jogo, permitindo a renderização eficiente de elementos visuais, como personagens e itens. 
 
-Ela gerencia uma imagem que contém vários sprites e fornece métodos para desenhar esses sprites na tela em diferentes posições e escalas.
+Ela gerencia uma imagem que contém vários sprites e fornece métodos para desenhar esses sprites no ecrã em diferentes posições e escalas.
 
 ```
 using System;
@@ -869,7 +869,7 @@ namespace Pacman
 }
 ```
 # __Conclusão__
-Implementamos com sucesso uma versão simplificada do clássico Pac-Man usando MonoGame em C#. Este projeto recria a emoção do jogo original, mantendo a jogabilidade icônica e desafiadora. Com controles simples e objetivos claros, o jogo oferece uma experiência divertida e envolvente para jogadores de todas as idades. A combinação de design retro com tecnologia moderna torna esta versão do Pac-Man uma homenagem ao legado duradouro deste jogo atemporal.
+Implementamos com sucesso uma versão simplificada do clássico Pac-Man usando MonoGame em C#. Este design recria a emoção do jogo original, mantendo a jogabilidade icónica e desafiante. Com controles simples e objetivos claros, o jogo oferece uma experiência divertida e envolvente para jogadores de todas as idades. A combinação de design retro com tecnologia moderna faz desta versão do Pac-Man um tributo ao legado duradouro deste jogo intemporal.
 
 <p align="center">
   <img src="https://lh4.googleusercontent.com/proxy/Pk0kAWyTCeDVYcgMK34QZbTBDLMRxyOAU_fmoxJUxoJs2Mjge3j6gBT3HY6bIGodMr233c4D1hk-_jPB-P38AJPIYu0QAtIZFPayv_1TlP1cYAYCa2Sr4h8J_yVe" width="300" alt="Pacman">
