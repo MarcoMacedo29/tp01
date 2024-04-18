@@ -26,24 +26,27 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
     - |-- Sounds/
 
 * __Code/__
+    - |-- Inky.cs
     - |-- Blinky.cs
+    - |-- Pinky.cs  
     - |-- Clyde.cs
-    - |-- Enemy.cs
+    - |-- Controller.cs
+    - |-- MySounds.cs 
     - |-- Game1.cs
     - |-- GameOver.cs
-    - |-- Inky.cs
     - |-- Menu.cs
-    - |-- MySounds.cs
     - |-- Node.cs
     - |-- Pathfinding.cs
-    - |-- Pinky.cs
     - |-- Player.cs
     - |-- Program.cs
     - |-- Snack.cs
     - |-- SpriteAnimation.cs
-    - |-- SpriteSheet.cs
     - |-- Text.cs
-    - |-- Tile.cs
+    - |-- Tile.cs 
+    - |-- Enemy.cs
+    - |-- SpriteSheet.cs
+    
+    
 
 - __Pacman/:__ Contém recursos como imagens, fontes e sons.
 - __Code/:__ Contém o código-fonte do jogo organizado em entidades, gerenciadores, telas e ajudantes.
@@ -75,7 +78,7 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 <a name="analise"></a>
 # __Análise dos Códigos Disponibilizados__
 
-## 	__Inky.cs, Blinky.cs, Pinky.cs, Lyde.cs:__
+## 	__Inky.cs, Blinky.cs, Pinky.cs, Clyde.cs:__
 Cada ficheiro de cada um representa o inimigo no jogo Pac-Man. Ela herda da classe base Enemy e é responsável por inicializar as características específicas do inimigo, como seu alvo de dispersão, retângulos de animação e comportamento de perseguição. 
 
 O código implementa métodos para determinar a posição do alvo de perseguição do inimigo com base na distância em relação ao jogador. Em resumo, esta classe organiza o comportamento e as propriedades do inimigo no contexto do jogo Pac-Man. Como os códigos .cs são semelhantes , concluimos só mostrar um (Blinky.cs):
@@ -510,8 +513,45 @@ namespace Pacman
 
 ## 	 	__Enemy.cs:__
 O código define uma série de enums para os tipos de fantasmas (GhostType) e estados do inimigo (EnemyState).Há a definição de diversas propriedades e variáveis para controlar a posição, direção, velocidade e estado dos fantasmas, bem como para armazenar informações sobre as animações dos mesmos.O construtor da classe inicializa várias dessas propriedades com valores padrão e configura as animações dos fantasmas.Há métodos para desenhar (Draw) e atualizar (Update) os fantasmas no jogo. Isso inclui lógica para decidir a direção dos fantasmas, movê-los pelo tabuleiro e lidar com a colisão deles com o jogador ou com outros elementos do jogo.Existem métodos para calcular a posição alvo dos fantasmas em diferentes estados do jogo, como perseguição, fuga e quando são comidos pelo jogador.
-Além disso, há métodos para lidar com eventos específicos, como quando um fantasma é comido pelo jogador. Basicamente esta parte define como os fantasmas se movem, reagem aos eventos do jogo e interagem com o jogador. 
+Além disso, há métodos para lidar com eventos específicos, como quando um fantasma é comido pelo jogador. Basicamente esta parte define como os fantasmas se movem, reagem aos eventos do jogo e interagem com o jogador.
 
+## __SpriteSheet.cs:__
+O SpriteSheet.cs facilita o desenho de sprites em um jogo, permitindo a renderização eficiente de elementos visuais, como personagens e itens. 
+
+Ela gerencia uma imagem que contém vários sprites e fornece métodos para desenhar esses sprites na tela em diferentes posições e escalas.
+
+```
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Pacman
+{
+    public class SpriteSheet
+    {
+        private Texture2D spriteSheet;
+
+        public SpriteSheet(Texture2D newSpriteSheet)
+        {
+            spriteSheet = newSpriteSheet;
+        }
+
+        public void drawSprite(SpriteBatch spriteBatch, Rectangle sourceRectangle, Vector2 position)
+        {
+            spriteBatch.Draw(spriteSheet, position, sourceRectangle, Color.White);
+        }
+
+        public void drawSprite(SpriteBatch spriteBatch, Rectangle sourceRectangle, Vector2 position, float scale)
+        {
+            spriteBatch.Draw(spriteSheet, position, sourceRectangle, Color.White, 0f, new Vector2(0,0), scale, SpriteEffects.None, 0f);
+        }
+    }
+}
+```
 # __Conclusão__
 Implementamos com sucesso uma versão simplificada do clássico Pac-Man usando MonoGame em C#. Este projeto recria a emoção do jogo original, mantendo a jogabilidade icônica e desafiadora. Com controles simples e objetivos claros, o jogo oferece uma experiência divertida e envolvente para jogadores de todas as idades. A combinação de design retro com tecnologia moderna torna esta versão do Pac-Man uma homenagem ao legado duradouro deste jogo atemporal.
 
