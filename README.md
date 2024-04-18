@@ -166,7 +166,7 @@ Interação com o usuário: Permite que o jogador controle o Pac-Man usando o te
 Renderização de elementos de interface: Desenha elementos como a pontuação, vidas restantes e outros textos na tela.
 
 ## 	 	__GameOver.cs:__
-Este trecho de código implementa a classe GameOver, responsável por gerenciar e exibir a tela de fim de jogo no Pac-Man. Aqui está uma análise:
+Esta parte do código implementa a classe GameOver, responsável por gerenciar e exibir a tela de fim de jogo no Pac-Man. Aqui está uma análise:
 Campos e Propriedades:
 basicFont: Armazena a fonte usada para renderizar o texto.
 basicFontPos: Armazena a posição onde o texto será desenhado.
