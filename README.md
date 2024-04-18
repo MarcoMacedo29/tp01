@@ -634,9 +634,9 @@ namespace Pacman
 ```
 <a name="spriteanimation"></a>
 ## 	 	__SpriteAnimation.cs:__
-O SpriteAnimation.cs controla a reprodução de uma série de retângulos que representam diferentes quadros da animação. 
+O __SpriteAnimation.cs__ controla a reprodução de retângulos que representam diferentes quadros da animação. 
 
-A classe permite controlar a reprodução, pausa e reinício da animação, além de desenhar os quadros animados na tela.
+A classe permite controlar a reprodução, paragem e reinício da animação, além de desenhar os sprites animados na tela.
 ```
 using System;
 using System.Collections.Generic;
@@ -766,22 +766,16 @@ namespace Pacman
 ```
 <a name="text"></a>
 ## 	 	__Text.cs:__
-Essa classe, Text, é responsável por desenhar texto na tela do jogo usando uma folha de sprite. Aqui estão suas principais características:
-Enumeração de Cores: Define uma enumeração para as cores do texto, como branco e vermelho.
-Atributos: Inclui uma folha de sprite que contém os caracteres de texto e retângulos para cada caractere.
-Métodos Construtores: Define um método construtor para inicializar a folha de sprite com uma textura fornecida.
-Métodos de Desenho: Fornece métodos para desenhar texto na tela com diferentes cores e escalas. Os caracteres são desenhados com base na string fornecida e na posição especificada, com um espaçamento entre letras opcional.
-Essa classe é útil para exibir informações na tela do jogo, como pontuações, mensagens de texto e outros elementos de interface do usuário. Ela permite personalizar a aparência do texto e integrá-lo perfeitamente ao estilo visual do jogo.
+O __Text.cs__ serve para desenhar texto na tela do jogo. Ele permite desenhar texto em duas cores diferentes (branco ou vermelho) e ajustar o espaçamento entre as letras. 
+
+As letras disponíveis estão definidas como retângulos em uma folha de sprite. A classe Text fornece métodos para desenhar texto em diferentes escalas e cores.
 
 <a name="tile"></a>
 ## 	 	__Tile.cs:__
-Essa classe, Tile, representa um único tile no mapa do jogo Pac-Man. Aqui estão seus principais pontos:
-Enumeração de Tipos de Tiles: Define uma enumeração para os tipos de tiles, incluindo Nenhum, Parede, Fantasma, Casa dos Fantasmas, Jogador e Snack.
-Atributos: Inclui um tipo de tile, que indica o tipo de conteúdo do tile, e um indicador de vazio para determinar se o tile está ocupado ou não.
-Propriedade de Posição: Fornece uma propriedade para acessar a posição do tile no mapa.
-Método para Obter Distância entre Tiles: Implementa um método estático para calcular a distância euclidiana entre duas posições de tiles.
-Métodos Construtores: Define construtores para criar um tile com uma posição e um tipo de tile especificados.
-Essa classe é fundamental para representar e interagir com os diferentes elementos no mapa do jogo Pac-Man, como paredes, fantasmas, snacks e o jogador. Ela facilita o gerenciamento e a manipulação dos tiles durante a jogabilidade.
+O Tile.cs representa os blocos individuais do mapa do jogo. Cada bloco pode ter um tipo específico, como parede, fantasma, casa de fantasma, jogador ou bola. 
+
+A classe fornece métodos para calcular a distância entre dois blocos e inicializa blocos com posições e tipos específicos.
+
 
 ```
 using System;
@@ -831,7 +825,9 @@ namespace Pacman
 ```
 <a name="enemy"></a>
 ## 	 	__Enemy.cs:__
-O código define uma série de enums para os tipos de fantasmas (GhostType) e estados do inimigo (EnemyState).Há a definição de diversas propriedades e variáveis para controlar a posição, direção, velocidade e estado dos fantasmas, bem como para armazenar informações sobre as animações dos mesmos.O construtor da classe inicializa várias dessas propriedades com valores padrão e configura as animações dos fantasmas.Há métodos para desenhar (Draw) e atualizar (Update) os fantasmas no jogo. Isso inclui lógica para decidir a direção dos fantasmas, movê-los pelo tabuleiro e lidar com a colisão deles com o jogador ou com outros elementos do jogo.Existem métodos para calcular a posição alvo dos fantasmas em diferentes estados do jogo, como perseguição, fuga e quando são comidos pelo jogador.
+O código define uma série de enums para os tipos de fantasmas (GhostType) e estados do inimigo (EnemyState).Há a definição de diversas propriedades e variáveis para controlar a posição, direção, velocidade e estado dos fantasmas, bem como para armazenar informações sobre as animações dos mesmos.O construtor da classe inicializa várias dessas propriedades com valores padrão e configura as animações dos fantasmas.
+
+Há métodos para desenhar (Draw) e atualizar (Update) os fantasmas no jogo. Isso inclui lógica para decidir a direção dos fantasmas, movê-los pelo tabuleiro e lidar com a colisão deles com o jogador ou com outros elementos do jogo.Existem métodos para calcular a posição alvo dos fantasmas em diferentes estados do jogo, como perseguição, fuga e quando são comidos pelo jogador.
 Além disso, há métodos para lidar com eventos específicos, como quando um fantasma é comido pelo jogador. Basicamente esta parte define como os fantasmas se movem, reagem aos eventos do jogo e interagem com o jogador.
 
 <a name="spritesheet"></a>
