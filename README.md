@@ -27,12 +27,12 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 
 * __Code/__
     - [|-- Inky.cs](#4codigos)
-    - |-- Blinky.cs
-    - |-- Pinky.cs  
-    - |-- Clyde.cs
-    - |-- Controller.cs
-    - |-- MySounds.cs 
-    - |-- Game1.cs
+    - [|-- Blinky.cs](#4codigos)
+    - [|-- Pinky.cs](#4codigos)  
+    - [|-- Clyde.cs](#4codigos)
+    - [|-- Controller.cs](##Controller:)
+    - [|-- MySounds.cs](##MySounds:)
+    - [|-- Game1.cs](##Game1.cs:)
     - |-- GameOver.cs
     - |-- Menu.cs
     - |-- Node.cs
