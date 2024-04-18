@@ -246,7 +246,22 @@ mas em atualizaçao meter update e o mesmo no desenho e atributos e assim.
 
 ## 		__Program.cs:__
 Este código serve como o ponto de entrada para o jogo Pac-Man.
+```
+using System;
 
+namespace Pacman
+{
+    public static class Program
+    {
+        [STAThread]
+        static void Main()
+        {
+            using (var game = new Game1())
+                game.Run();
+        }
+    }
+}
+```
 ## 	 	__Snack.cs:__
 Este código implementa a classe Snack para representar os snacks (ou pontos) que o jogador pode coletar no jogo Pac-Man. Aqui está uma breve explicação das principais características desta classe:
 Enumerador SnackType: Define os tipos de snacks disponíveis, como "Small" (pequeno) e "Big" (grande).
@@ -254,6 +269,71 @@ Atributos: Inclui a posição do snack no grid do labirinto, o tipo de snack, a 
 Método Construtor: Inicializa um novo snack com base no tipo fornecido, definindo sua posição no grid e atribuindo uma pontuação e um deslocamento de raio adequados.
 Método Draw: Desenha o snack na tela com base no seu tipo e posição. Para snacks grandes, um temporizador é usado para alternar entre a visualização do snack e uma visualização intermitente.
 Essa classe é responsável por representar os snacks no jogo Pac-Man e desenhá-los na tela para que o jogador possa coletá-los durante o jogo.
+
+```
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
+namespace Pacman
+{
+    public class Snack
+    {
+        public enum SnackType { Small, Big };
+        public SnackType snackType;
+        private Vector2 gridPosition;
+        private int[] gridTile;
+        public int scoreGain;
+        private Rectangle smallSnackRect = new Rectangle(33, 33, 6, 6);
+        private Rectangle bigSnackRect = new Rectangle(24, 72, 24, 24);
+        private int radiusOffSet;
+        private int timerBigSnack = 20;
+
+        public Vector2 Position
+        {
+            get { return gridPosition; }
+        }
+
+        public Snack(SnackType newSnackType, Vector2 newPosition, int[] newGridTile)
+        {
+            snackType = newSnackType;
+            if (newSnackType == SnackType.Big)
+            {
+                scoreGain = 50;
+                radiusOffSet = 12;
+            }
+            else
+            {
+                scoreGain = 10;
+                radiusOffSet = 3;
+            }
+                
+            gridPosition = newPosition;
+            gridTile = newGridTile;
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            if (snackType == SnackType.Small)
+                Game1.spriteSheet1.drawSprite(spriteBatch, smallSnackRect, new Vector2(gridPosition.X + Controller.tileWidth / 2 - radiusOffSet, gridPosition.Y + Controller.tileHeight / 2 - radiusOffSet));
+            else
+            { 
+                if (timerBigSnack >= 10 || Game1.gamePauseTimer > 0)
+                    Game1.spriteSheet1.drawSprite(spriteBatch, bigSnackRect, new Vector2(gridPosition.X + Controller.tileWidth / 2 - radiusOffSet, gridPosition.Y + Controller.tileHeight / 2 - radiusOffSet));
+                timerBigSnack -= 1;
+                if (timerBigSnack < 0)
+                {
+                    timerBigSnack = 20;
+                }
+            }
+        }
+    }
+}
+```
 
 ## 	 	__SpriteAnimation.cs:__
 Esta classe, SpriteAnimation, é responsável por gerenciar a animação de sprites em um jogo. Aqui está uma explicação das suas principais características:
