@@ -2,7 +2,7 @@
 
 # Indíce
 1. [__Implementação__](#Implementação)
-2. [__Instruções de Jogo__](#InstruçõesdeJogo)
+2. [__Instruções de Jogo__](#instru)
 3. [__Decisões de Implementação__](#Desições_de_Implementação)
 # Introdução
 Este relatório apresenta a implementação de uma versão simplificada do jogo Pac-Man, desenvolvida utilizando o framework MonoGame em C#. O objetivo é fornecer uma visão geral da estrutura do projeto, decisões de implementação e instruções de jogo. Além disso, será feita uma análise dos códigos disponibilizados, abordando a organização e a lógica implementada.
@@ -11,6 +11,7 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 </p>
 
 # Implementação
+
 
 ## Estrutura de Pastas:
 
@@ -43,6 +44,7 @@ Este relatório apresenta a implementação de uma versão simplificada do jogo 
 - __Pacman/:__ Contém recursos como imagens, fontes e sons.
 - __Code/:__ Contém o código-fonte do jogo organizado em entidades, gerenciadores, telas e ajudantes.
 
+<a name="instru"></a>
 # Instruções de Jogo
 * __Objetivo:__ 
     - Mova o Pac-Man pelo labirinto para comer todos os pontos e evitar os fantasmas.
