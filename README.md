@@ -114,11 +114,15 @@ namespace Pacman
 
 ## 	 	__Controller.cs:__
 A classe Controller gerencia a lógica do jogo Pac-Man. Ela mantém informações sobre o estado do jogo, como a grade do mapa, a posição dos lanches, o estado dos fantasmas e do Pac-Man, entre outros. Além disso, controla a transição entre os estados dos fantasmas (perseguir ou dispersar), cria e reinicia os fantasmas quando necessário, e verifica se os caminhos estão disponíveis para movimento.
+
 O código utiliza estruturas de repetição para inicializar a grade do mapa com base em um array bidimensional, onde cada número representa um tipo de elemento no jogo, como paredes, lanches, casa dos fantasmas, entre outros. Ele também implementa métodos para desenhar a grade de depuração do mapa, bem como para desenhar e atualizar os fantasmas e os caminhos de busca.
 Além disso, a classe gerencia eventos como a vitória do jogador, o fim do jogo, a morte do Pac-Man e o reinício do jogo. O código é organizado e modular, permitindo um controle eficiente do estado e do comportamento do jogo.
 
 ## 		__MySounds.cs:__
-Este código define uma classe estática chamada MySounds que armazena referências para efeitos sonoros do jogo Pac-Man. Ele fornece campos estáticos para cada efeito sonoro, permitindo acesso global e controle centralizado dos sons do jogo. Cada campo representa um efeito sonoro específico.
+Este código define uma classe estática chamada MySounds que armazena referências para efeitos sonoros do jogo Pac-Man. 
+
+Ele fornece campos estáticos para cada efeito sonoro, permitindo acesso global e controle centralizado dos sons do jogo. 
+Cada campo representa um efeito sonoro específico.
 ```
 using System;
 using System.Collections.Generic;
